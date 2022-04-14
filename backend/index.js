@@ -4,7 +4,11 @@ const app = express();
 
 app.use(express.json()); //Peticiones en formato JSON
 
-
+app.get('/', (req, res) => {
+    res.send({
+        "nombre":"Hola jhosebro"
+    });
+})
 
 
 //Puerto para correrlo es npm run dev
