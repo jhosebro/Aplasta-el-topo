@@ -1,14 +1,7 @@
-body {
-    background-color: #28B15C;
-    cursor: url(/FrontEnd/img/cursor.png), auto;
+.bodyindex {
+    background-color: rgb(40, 177, 92);
+    cursor: url(../img/cursor.png), auto;
 }
 
-img {
-    height: 200px;
-    width: 260px;
-}
 
-.titulo {
-    font-size: 100px;
-    text-align: center;
-}
+
