@@ -27,6 +27,12 @@ $(".img-responsive").on("click", function(){
         puntajeReal = 0;
     }
     
+    if(puntajeReal >= 11){
+        alert("Ganaste capo. Pasa al siguiente nivel.");
+        tiempoReal = 60;
+        puntajeReal = 0;
+    }
+
     $("#puntajeActual").remove();
     var puntaje = "<h1 class='text-center fs-3 p-2 border border-5 rounded-pill border-warning bg-success bg-gradient' id='puntajeActual'>Puntaje: " + puntajeReal + "</h1>"
     $("#puntaje").append(puntaje);
@@ -54,6 +60,20 @@ function desaparecerFuncion() {
     $("#"+numeroRandom+"").attr("src", "img/Mole-Animal-PNG-HD-Quality.png");
     }
 }
+
+var tiempoReal = 60; 
+
+function restarTiempo(){
+    tiempoReal--;
+    $("#tiempoActual").html("Tiempo: " + tiempoReal);
+    if(tiempoReal == 0){
+        alert("Perdiste capo. Intenta de nuevo");
+        tiempoReal = 60;
+        puntajeReal = 0;
+    }
+}
+
+setInterval(restarTiempo,1000);
 
 document.addEventListener('DOMContentLoaded',repetirCadaSegundo())
 
