@@ -3,5 +3,16 @@
     cursor: url(../img/cursor.png), auto;
 }
 
+.contenedor {
+    padding: 1em;
+    margin-left: 1.4em;
+    width: 99%;
+    height: auto;
+    background-color:rgb(40, 177, 92);
+    
+    border: 10px outset #e76278;
+
+}
+
 
 
