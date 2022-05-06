@@ -8,8 +8,7 @@
     margin-left: 1.4em;
     width: 99%;
     height: auto;
-    background-color:rgb(40, 177, 92);
-    
+    background-image: url(../img/image.png);
     border: 10px outset #e76278;
 
 }

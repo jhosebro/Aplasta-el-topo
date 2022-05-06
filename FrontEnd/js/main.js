@@ -1,4 +1,4 @@
-for (var i = 0; i < 18; i++) {
+for (var i = 0; i < 12; i++) {
     $("#dibujandoTopos").append(
         "<img  class='img-responsive col-md-2 text-center p-1 topo' id='"+ i +"' src='img/fondoVerde.png'>"
     );
