@@ -1,42 +1,61 @@
+const urlImagenTopo = 'img/Mole-Animal-PNG-HD-Quality.png'
+const urlImagenFondoVerde = 'img/fondoVerde.png'
+const tablero = document.querySelector('.contenedor')
+var puntajeReal = 0
+var puntaje = `<h1 class='text-center fs-3 p-2 border border-5 rounded-pill border-warning bg-success bg-gradient' id='puntajeActual'>Puntaje:${puntajeReal}</h1>`
+
+
 for (var i = 0; i < 12; i++) {
     $("#dibujandoTopos").append(
-        "<img  class='img-responsive col-md-2 text-center p-1 topo' id='"+ i +"' src='img/fondoVerde.png'>"
+        `<img  class='img-responsive col-md-2 text-center p-1 topo' id='${i}' src='${urlImagenFondoVerde}'>`
     );
 }
 
+$("#puntaje").append(puntaje)
 
-var puntajeReal = 0;
-var puntaje = "<h1 class='text-center fs-3 p-2 border border-5 rounded-pill border-warning bg-success bg-gradient' id='puntajeActual'>Puntaje: " + puntajeReal + "</h1>"
-$("#puntaje").append(puntaje);
-
-
-
-$(".img-responsive").on("click", function(){
-    if( $(".img-responsive").hasClass( "topo" ) ) {
-        $(this).removeClass("topo");
-        $(this).addClass("fondo");
-        $(this).attr("src", "img/fondoVerde.png");
-        puntajeReal++;
-    }else{
-    $(this).removeClass("fondo");
-    $(this).addClass("topo");
-    $(this).attr("src", "img/Mole-Animal-PNG-HD-Quality.png");
-    puntajeReal--;
+/* --- CAPTURANDO EL EVENTO CLICK --- */
+tablero.addEventListener('click', e => {
+    if(e.target.classList.contains('img-responsive')){
+        if(e.target.classList.contains('topo')){
+            puntajeReal++
+            e.target.classList.remove('topo')
+            e.target.classList.add('fondo')
+            e.target.setAttribute('src', urlImagenFondoVerde)
+        }else{
+            puntajeReal--
+        }
     }
-    if(puntajeReal < 0){
-        puntajeReal = 0;
-    }
-    
-    if(puntajeReal >= 11){
-        alert("Ganaste capo. Pasa al siguiente nivel.");
-        tiempoReal = 60;
-        puntajeReal = 0;
-    }
-
-    $("#puntajeActual").remove();
-    var puntaje = "<h1 class='text-center fs-3 p-2 border border-5 rounded-pill border-warning bg-success bg-gradient' id='puntajeActual'>Puntaje: " + puntajeReal + "</h1>"
-    $("#puntaje").append(puntaje);
 })
+
+$(".img-responsive").on("click", 
+    function(){
+        // if( $(".img-responsive").hasClass( "topo" ) ) {
+        //     puntajeReal++;
+        //     $(this).removeClass("topo");
+        //     $(this).addClass("fondo");
+        //     $(this).attr("src", "img/fondoVerde.png");
+        //     // console.log('sisas')
+        // }else{
+        //     puntajeReal--;
+        //     $(this).removeClass("fondo");
+        //     $(this).addClass("topo");
+        //     $(this).attr("src", "img/Mole-Animal-PNG-HD-Quality.png");
+        //     // console.log('nonas')
+        // }
+        if(puntajeReal < 0){
+            puntajeReal = 0;
+        }
+        
+        if(puntajeReal >= 10){
+            alert("Ganaste capo. Pasa al siguiente nivel.");
+            tiempoReal = 60;
+            puntajeReal = 0;
+        }
+
+        $("#puntajeActual").remove();
+        var puntaje = "<h1 class='text-center fs-3 p-2 border border-5 rounded-pill border-warning bg-success bg-gradient' id='puntajeActual'>Puntaje: " + puntajeReal + "</h1>"
+        $("#puntaje").append(puntaje);
+    })
 
 
 var velocidad = 300;
@@ -55,9 +74,9 @@ function desaparecerFuncion() {
         $("#"+numeroRandom+"").addClass("fondo");
         $("#"+numeroRandom+"").attr("src", "img/fondoVerde.png");
     }else{
-    $("#"+numeroRandom+"").removeClass("fondo");
-    $("#"+numeroRandom+"").addClass("topo");
-    $("#"+numeroRandom+"").attr("src", "img/Mole-Animal-PNG-HD-Quality.png");
+        $("#"+numeroRandom+"").removeClass("fondo");
+        $("#"+numeroRandom+"").addClass("topo");
+        $("#"+numeroRandom+"").attr("src", "img/Mole-Animal-PNG-HD-Quality.png");
     }
 }
 
